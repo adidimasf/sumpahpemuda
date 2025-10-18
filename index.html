@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sumpah Pemuda Generator Keren</title>
+
+  <meta name="description" content="Bangkitkan semangat Sumpah Pemuda-mu! Buat dan bagikan kutipan inspiratif dengan namamu sendiri.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://URL_WEBSITEMU_NANTI.com/">
+  <meta property="og:title" content="Sumpah Pemuda Generator Keren">
+  <meta property="og:description" content="Bangkitkan semangat Sumpah Pemuda-mu! Buat dan bagikan kutipan inspiratif dengan namamu sendiri.">
+  <meta property="og:image" content="https://URL_WEBSITEMU_NANTI.com/preview-gambar.png">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://URL_WEBSITEMU_NANTI.com/">
+  <meta property="twitter:title" content="Sumpah Pemuda Generator Keren">
+  <meta property="twitter:description" content="Bangkitkan semangat Sumpah Pemuda-mu! Buat dan bagikan kutipan inspiratif dengan namamu sendiri.">
+  <meta property="twitter:image" content="https://URL_WEBSITEMU_NANTI.com/preview-gambar.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-wrapper">
+    
+    <div class="container">
+      <h1>Semangat Sumpah Pemuda 🇮🇩</h1>
+      <p id="error-message" class="error"></p>
+      <input type="text" id="name" placeholder="Nama kamu">
+      <input type="text" id="city" placeholder="Asal kota">
+      
+      <div class="upload-container">
+        <label for="bg-upload" class="upload-label">Pilih Background</label>
+        <span id="reset-bg" class="reset-bg" title="Hapus Background" style="display: none;">&times;</span>
+        <input type="file" id="bg-upload" accept="image/*" style="display: none;">
+      </div>
+      
+      <button>Bangkitkan Semangat!</button>
+      
+      <div class="card-scene">
+        <div id="quote-card-flipper">
+          <div class="card-face card-front">
+            <img src="https://i.imgur.com/g0Ff20l.png" alt="Garuda Pancasila" width="80" loading="lazy">
+          </div>
+          <div class="card-face card-back">
+            <p id="quote" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="template-picker">
+        <span>Pilih Tema Kartu:</span>
+        <button class="template-btn active" data-template="default">Standar</button>
+        <button class="template-btn" data-template="classic">Klasik</button>
+        <button class="template-btn" data-template="dark">Malam</button>
+      </div>
+
+      <button id="copyButton" style="display: none;">Salin Teks</button>
+      
+      <div class="download-controls">
+        <button id="downloadButton" style="display: none;">Download Gambar 🖼️</button>
+        <select id="quality-select" class="quality-select" style="display: none;">
+          <option value="1">SD</option>
+          <option value="2" selected>HD</option>
+          <option value="3">Ultra</option>
+        </select>
+      </div>
+      <div class="share-buttons" style="margin-top: 20px; display: none;">
+        <a id="share-twitter" href="#" target="_blank">Share ke Twitter 🐦</a>
+        <a id="share-whatsapp" href="#" target="_blank">Share ke WhatsApp 💬</a>
+      </div>
+    </div>
+
+    <div class="contribution-container">
+      <h2>Sumbang Kutipan Pahlawan</h2>
+      <input type="text" id="quote-text" placeholder="Tulis kutipan di sini...">
+      <input type="text" id="quote-author" placeholder="Nama Pahlawan (Contoh: Soekarno)">
+      <button id="submit-quote" class="submit-btn">Kirim Sumbangan</button>
+      <p id="submit-status" class="submit-status"></p>
+    </div>
+    
+    <div class="feedback-container">
+      <h2>Saran & Masukan</h2>
+      <textarea id="feedback-text" placeholder="Punya ide atau kritik? Tulis di sini..." rows="4"></textarea>
+      <button id="submit-feedback" class="submit-btn feedback-btn">Kirim Masukan</button>
+      <p id="feedback-status" class="submit-status"></p>
+    </div>
+
+    <footer class="main-footer">
+      <p>Dibuat dengan semangat <span style="color: #e60000;">❤️</span> oleh <strong>Anak Kantoran Pemula</strong> &copy; 2025</p>
+    </footer>
+
+  </div> <div id="loader" class="loader-overlay" style="display: none;">
+    <div class="spinner"></div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

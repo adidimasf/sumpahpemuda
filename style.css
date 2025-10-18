@@ -1,0 +1,258 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ff3b3b, #ffffff);
+  color: #222;
+  text-align: center;
+  padding: 40px;
+}
+
+/* KUNCI UTAMA ADA DI SINI */
+.app-wrapper {
+  max-width: 400px;
+  margin: auto;
+  /* PINDAHKAN GAYA KARTU KE SINI */
+  background: rgba(255,255,255,0.8);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* HAPUS GAYA VISUAL DARI SINI */
+.container {
+  /* Tidak perlu style apa-apa lagi, karena sudah diatur oleh .app-wrapper */
+}
+
+input, select {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  width: 80%;
+  box-sizing: border-box;
+}
+
+button {
+  background: #e60000;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #c00000;
+  transform: translateY(-2px);
+}
+
+#copyButton, #downloadButton {
+    background: #007bff;
+}
+
+#copyButton:hover, #downloadButton:hover {
+    background: #0056b3;
+}
+
+.error {
+  color: #d32f2f;
+  font-weight: bold;
+  height: 20px;
+  transition: opacity 0.3s ease;
+}
+
+.share-buttons a {
+  display: inline-block;
+  margin: 5px;
+  padding: 8px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+#share-twitter {
+  background-color: #1DA1F2;
+}
+
+#share-whatsapp {
+  background-color: #25D366;
+}
+
+/* === GAYA ANIMASI FLIP CARD 3D (DIPERBAIKI) === */
+.card-scene {
+  width: 100%;
+  min-height: 220px;
+  perspective: 1000px;
+  margin-top: 20px;
+  position: relative;
+}
+
+#quote-card-flipper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+#quote-card-flipper.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-sizing: border-box;
+  min-height: 220px;
+}
+
+.card-front {
+  background: #fff;
+  border: 2px solid #e60000;
+}
+
+.card-back {
+  background: #fff;
+  border: 2px solid #e60000;
+  transform: rotateY(180deg);
+  padding: 25px;
+  height: auto;
+  position: relative;
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
+#quote {
+  font-size: 15px;
+  margin: 0;
+}
+/* === END GAYA FLIP CARD === */
+
+/* Gaya untuk Template Kartu (MENARGETKAN .card-back) */
+.card-back.classic {
+  background-image: url('https://www.transparenttextures.com/patterns/old-paper.png');
+  background-color: #fdf5e6;
+  font-family: 'Times New Roman', serif;
+  border-color: #8B4513;
+}
+
+.card-back.dark {
+  background-color: #212529;
+  color: #f8f9fa;
+  border-color: #f8f9fa;
+  text-shadow: none;
+}
+
+/* GAYA LOADING SPINNER */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid #e60000;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* GAYA KONTROL LAINNYA */
+.template-picker { margin: 15px 0 5px 0; }
+.template-btn { background: #6c757d; font-size: 12px; padding: 5px 10px; margin: 0 5px; }
+.template-btn.active { background: #e60000; transform: scale(1.1); }
+.upload-container { position: relative; width: 85%; margin: 15px auto 10px auto; }
+.upload-label { width: 100%; margin: 0; }
+.reset-bg { position: absolute; top: 50%; right: -30px; transform: translateY(-50%); cursor: pointer; font-size: 28px; font-weight: bold; color: #6c757d; }
+.reset-bg:hover { color: #e60000; }
+.download-controls { display: inline-block; vertical-align: middle; margin-top: 10px; }
+#downloadButton { margin-right: 5px; margin-top: 0; }
+.quality-select { padding: 8px; vertical-align: middle; margin-top: 0; width: auto; }
+
+/* DITAMBAHKAN: Kelas khusus untuk menetralkan 3D saat download */
+#quote-card-flipper.prepare-download { transform: none !important; transition: none !important; }
+#quote-card-flipper.prepare-download .card-back { transform: none !important; transition: none !important; }
+
+/* HAPUS GAYA VISUAL DARI SINI */
+.contribution-container {
+  margin: 40px 0;
+  padding: 20px 0; /* Ubah padding agar tidak terlalu lebar */
+  border-top: 1px solid #ddd; /* Tambah garis pemisah */
+}
+.contribution-container h2 {
+  margin-top: 0;
+}
+.submit-btn {
+  background-color: #28a745;
+}
+.submit-btn:hover {
+  background-color: #218838;
+}
+.submit-status {
+  margin-top: 15px;
+  font-weight: bold;
+  min-height: 20px;
+}
+
+/* Gaya untuk Footer */
+.main-footer {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd; /* Tambah garis pemisah */
+  color: #6c757d; /* Sedikit lebih gelap agar terbaca */
+  font-size: 14px;
+}
+.main-footer p {
+  margin: 5px 0;
+}
+
+/* DITAMBAHKAN: Gaya untuk Kolom Feedback */
+.feedback-container {
+  margin: 40px 0;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+}
+.feedback-container h2 {
+  margin-top: 0;
+}
+textarea {
+  width: 80%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-family: 'Poppins', sans-serif;
+  min-height: 80px; /* Beri tinggi minimal */
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+.feedback-btn {
+  background-color: #007bff; /* Warna biru, beda dari submit quote */
+}
+.feedback-btn:hover {
+  background-color: #0056b3;
+}
+/* AKHIR FILE CSS, TIDAK ADA KURUNG '}' LAGI SETELAH INI */
